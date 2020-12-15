@@ -1,0 +1,22 @@
+{
+    "name": "bot",
+    "version": "1.0.0",
+    "description": "Code++ mod bot",
+    "main": "index.js",
+    "scripts": {
+        "start": "node .",
+        "dev": "nodemon index.js"
+    },
+    "author": "macedonga (https://macedon.ga/)",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "discord.js": "^12.5.1",
+        "dotenv": "^8.2.0",
+        "mongodb": "^3.6.3",
+        "node-fetch": "^2.6.1",
+        "request": "^2.88.2"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    }
+}
