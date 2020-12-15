@@ -28,7 +28,7 @@ module.exports = {
             .addField(`Reported in:`, `${message.channel}`)
             .addField(`Reason:`, `${args.slice(1).join(" ")}`);
 
-        client.channels.cache.get(process.env.AUDIT).send(embed);
+        client.channels.cache.get(process.env.REPORTS).send(embed);
         message.channel.send(utils.createSuccess("Successfully reported user!", "The staff team will review your report as soon as possible!"));
     }
 }
