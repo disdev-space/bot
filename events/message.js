@@ -1,11 +1,35 @@
 const Discord = require('discord.js');
 const { cooldowns, options } = require("../data/vars");
 const utils = require("../data/utils");
+const Levels = require("discord-xp");
 
-module.exports = (client, message) => {
+module.exports = async(client, message) => {
+    if (!message.guild) return;
     if (message.author.bot) return;
     if (message.content.includes('discord.gg/' || 'discordapp.com/invite/' || 'discord.com/invite/'))
         return message.delete().then(message.channel.send(utils.createWarning("Invite links are not permitted in this server!")))
+
+    const randomAmountOfXp = Math.floor(Math.random() * 29) + 1;
+    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomAmountOfXp);
+    if (hasLeveledUp) {
+        const user = await Levels.fetch(message.author.id, message.guild.id);
+        const embed = new Discord.MessageEmbed()
+            .setTitle(`**${message.member.user.username} has leveled up!**`)
+            .setColor(utils.randomHex())
+            .setDescription(`Congratulations <@!${message.member.user.id}>, you leveled up to **level ${user.level}**!`)
+            .setAuthor(message.member.user.username, message.member.user.displayAvatarURL({ dynamic: true }))
+            .setTimestamp();
+        if (user.level == 10)
+            message.member.roles.add(message.guild.roles.cache.find(r => r.id === process.env.SI_ROLE));
+        else if (user.level == 20)
+            message.member.roles.add(message.guild.roles.cache.find(r => r.id === process.env.GO_ROLE));
+        else if (user.level == 35)
+            message.member.roles.add(message.guild.roles.cache.find(r => r.id === process.env.DI_ROLE));
+        else if (user.level == 50)
+            message.member.roles.add(message.guild.roles.cache.find(r => r.id === process.env.PL_ROLE));
+        client.channels.cache.get(process.env.LEVELS).send(embed);
+    }
+
     if (!message.content.startsWith(process.env.PREFIX)) return;
 
     const args = message.content.slice(process.env.PREFIX.length).trim().split(/ +/);

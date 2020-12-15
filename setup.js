@@ -1,8 +1,11 @@
 const Discord = require('discord.js');
 const fs = require('fs');
 const { options } = require("./data/vars");
+const Levels = require("discord-xp");
 
 module.exports = () => {
+    // Levels
+    Levels.setURL(process.env.MONGO_URI);
 
     // Create discord.js client
     const client = new Discord.Client({ restTimeOffset: 200 });
