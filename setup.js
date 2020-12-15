@@ -8,7 +8,7 @@ module.exports = () => {
     Levels.setURL(process.env.MONGO_URI);
 
     // Create discord.js client
-    const client = new Discord.Client({ restTimeOffset: 200 });
+    const client = new Discord.Client({ restTimeOffset: 200, partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
     // A collection for all the commands
     client.commands = new Discord.Collection();
 
