@@ -5,7 +5,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-app.get('/votes/end/point', (req, res) => {
+app.post('/votes/end/point', (req, res) => {
     console.log(req.body);
 });
 
