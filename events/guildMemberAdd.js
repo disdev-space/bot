@@ -7,7 +7,7 @@ module.exports = (client, member) => {
             .setAuthor(member.user.username, member.user.displayAvatarURL({ dynamic: true }))
             .setTitle(`Welcome ${member.displayName}`)
             .setColor(utils.randomHex())
-            .setDescription(`Welcome ${member.user.username} to Code++!\n• Make sure to read <#788186389853634580> before getting started!\n• Grab yourself some roles at <#788275622711525406>!\n• 10+ Languages Supported!\nYou are our member number ${member.guild.members.cache.filter(member => !member.user.bot).size}!`)
+            .setDescription(`Welcome ${member.user.username} to DisDev!\n• Make sure to read <#836919167968870410> before getting started!\n• Grab yourself some roles at <#836919202395979807>!\n• Play a ton of coding challenges!\nYou are our member number ${member.guild.members.cache.filter(member => !member.user.bot).size}!`)
             .setTimestamp();
 
         client.channels.cache.get("837376927072387178").send(embed);
