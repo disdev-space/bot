@@ -30,13 +30,7 @@ module.exports = async() => {
             client.on(file.replace(".js", ""), event.bind(null, client));
             console.log(`Event loaded: ${file}`);
         }
-
-        // Connect to DB
-        options.connectToDB(function(err) {
-            if (err) throw (err);
-
-            // Login
-            client.login(process.env.DBT).then(() => resolve(client));
-        });
+        // Login
+        client.login(process.env.DBT).then(() => resolve(client));
     });
 };

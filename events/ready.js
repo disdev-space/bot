@@ -1,4 +1,4 @@
 module.exports = (client, message) => {
-    client.user.setPresence({ activity: { name: `at Code++`, type: 3 } });
+    client.user.setPresence({ activity: { name: `DisDev.space`, type: 4 } });
     console.log("Ready!");
 };

@@ -3,7 +3,7 @@ const Levels = require("discord-xp");
 
 module.exports = {
     name: 'rank',
-    description: 'Deletes messages.',
+    description: 'Returns user rank.',
     guildOnly: true,
     async execute(message, args) {
         let member = message.mentions.members.first() || message.guild.members.cache.find(user => user.displayName == args[0]) || message.guild.members.cache.find(user => user.id == args[0]) || message.member;
