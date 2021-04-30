@@ -21,7 +21,7 @@ require("./setup")().then((client) => {
                         .setTimestamp()
                         .setAuthor(user.displayName, avatar)
                         .setTitle(`**${user.displayName}** just voted!`)
-                        .setDescription(`Thank you ${user.displayName} for voting DisDev on top.gg!\nYou now have the <@&${process.env.VOTE_ROLE}> role, that will give you access to advertising channels!`)
+                        .setDescription(`Thank you ${user.displayName} for voting DisDev on top.gg!\nYou now have the <@&837325171538395227> role, that will give you access to advertising channels!`)
 
                     let role = user.guild.roles.cache.find(r => r.id === "837325171538395227");
 
